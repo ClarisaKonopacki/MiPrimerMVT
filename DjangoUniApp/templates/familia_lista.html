@@ -1,0 +1,46 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Miembros de Mi Familia</h1>
+              
+      </div>
+      </div>
+      <div class="row">
+      <div class="col">
+          <h2></h2>
+        {% if personas %}
+
+        <table class="table" border="1" table-layout = "auto" marguin = "auto" >
+           
+            <thead>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Fecha de Nacimiento</th>
+                                
+            </thead>
+        
+            {% for persona in personas %}
+            <tbody>
+                <tr>
+                    
+                    <td style = "width: 15%"> {{persona.nombre}} </td>
+                    <td style = "width: 15%"> {{persona.apellido}} </td>
+                    <td style = "width: 15%"> {{persona.email}} </td>
+                    <td style = "width: 15%"> {{persona.edad}} </td>
+                    <td style = "width: 25%"> {{persona.fecha_nacimiento}} </td>
+                    
+                </tr>  
+            </tbody>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No tienes familiares cargados</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  
+
