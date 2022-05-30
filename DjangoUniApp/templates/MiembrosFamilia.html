@@ -1,0 +1,53 @@
+{% extends "DjangoUniApp/familia_lista.html" %}
+
+{% load bootstrap5 %}
+
+{% block cuerpo %}
+<div class="container">    
+  
+  <div class="row">
+    <div class="col">
+      {% url 'agregar' as agregar_url %}
+      {% url 'buscar' as buscar_url %}
+      {% bootstrap_button "Agregar" button_class="btn-success" button_type="link" href=agregar_url %} 
+      {% bootstrap_button "Buscar" button_class="btn-success" button_type="link" href=buscar_url %}  
+    <div>
+  <div>
+
+  <div class="row">
+    <div class="col">
+        {% if personas %}
+        <table class="table">
+            <thead>
+                <th scope="col">Identificador</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Fecha Nacimiento</th>
+                <th scope="col">Acciones</th>
+            </thead>
+        
+            {% for persona in Personas %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{persona.id}} </th>
+                    <td> {{persona.nombre}} </td>
+                    <td> {{persona.apellido}} </td>
+                    <td> {{persona.email}} </td>
+                    <td> {{persona.edad}} </td>
+                    <td> {{persona.fecha_nacimiento}} </td>
+                    
+                    {% url 'borrar' identificador=p.id as borrar_url %}
+                    <td>{% bootstrap_button "Borrar" size="sm" button_class="btn-danger" button_type="link" href=borrar_url %}</td>
+                </tr>  
+            </tbody>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No tienes familiares cargados</p>
+        {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,46 +1,30 @@
 
-<div class="container">
-    <div class="row">
-      <div class="col">
-        <h1>Miembros de Mi Familia</h1>
-              
-      </div>
-      </div>
-      <div class="row">
-      <div class="col">
-          <h2></h2>
-        {% if personas %}
 
-        <table class="table" border="1" table-layout = "auto" marguin = "auto" >
-           
-            <thead>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Email</th>
-                <th scope="col">Edad</th>
-                <th scope="col">Fecha de Nacimiento</th>
-                                
-            </thead>
-        
-            {% for persona in personas %}
-            <tbody>
-                <tr>
-                    
-                    <td style = "width: 15%"> {{persona.nombre}} </td>
-                    <td style = "width: 15%"> {{persona.apellido}} </td>
-                    <td style = "width: 15%"> {{persona.email}} </td>
-                    <td style = "width: 15%"> {{persona.edad}} </td>
-                    <td style = "width: 25%"> {{persona.fecha_nacimiento}} </td>
-                    
-                </tr>  
-            </tbody>
-            {% endfor %}
-        </table>
-        {% else %}
-            <p>No tienes familiares cargados</p>
-        {% endif %}
-      </div>
-    </div>
-  </div>
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<!-- <esto es la cabecera/header> -->
+<ul class="nav bg-dark fixed">
+  <li class="nav-item">
+    <a class="nav-link active" href="{%url  'index' %}"> Miembros de Mi Familia</a>
+  </li>
+</ul>
+
+{%block cuerpo%}
+{%endblock%}
+<!-- <esto es el pie/ footer > -->
+<ul class="nav bg-dark fixed-bottom justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" href="/DjangoUniApp">coder house - python 36585 - {% now 'd-m-Y' %}</a>
+  </li>
+</ul>
+
+
   
 
