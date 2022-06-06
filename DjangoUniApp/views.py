@@ -39,14 +39,14 @@ def agregar(request):
             edad = form.cleaned_data['edad']
             Persona(nombre=nombre, apellido=apellido, email=email, fecha_nacimiento=fecha_nacimiento, edad=edad).save()
 
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect("/DjangoUniApp/")
     elif request.method == "GET":
         form = PersonaForm()
     else:
         return HttpResponseBadRequest("Error no conzco ese metodo para esta request")
 
     
-    return render(request, 'DjangoUniApp/form_carga.html', {'form': form})
+    return render(request, 'form_carga.html', {'form': form})
 
 
 def borrar(request, identificador):
@@ -81,4 +81,4 @@ def buscar(request):
            palabra_a_buscar = form_busqueda.cleaned_data['palabra_a_buscar']
            personas = Persona.objects.filter(nombre__icontains=palabra_a_buscar)
 
-        return  render(request, 'lista_familiares.html', {"personas": personas})
+        return  render(request, 'MiembrosFamiliares.html', {"personas": personas})

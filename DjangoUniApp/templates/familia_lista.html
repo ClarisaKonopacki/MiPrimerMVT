@@ -1,29 +1,60 @@
-
-
 {% load bootstrap5 %}
-
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
-
 <!-- <esto es la cabecera/header> -->
-<ul class="nav bg-dark fixed">
-  <li class="nav-item">
-    <a class="nav-link active" href="{%url  'index' %}"> Miembros de Mi Familia</a>
-  </li>
-</ul>
+  <body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{%url  'index' %}">Miembros familia</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Header-->
+    <header class="bg-light">
+      <div class="container px-4 text-center">
+          <h1 class="fw-bolder"></h1>
+          <p class="lead"></p>
+      </div><br>
+      <div class="container">
+        <div class="row">
+          <div class="col-4">
+            {% url 'agregar' as agregar_url %}
+            {% bootstrap_button "Agregar" button_class="btn-success" button_type="link" href=agregar_url %}
+          </div>
+          <div class="col-4">
+            {% url 'borrar' as borrar_url %}
+            {% bootstrap_button "Borrar" button_class="btn-success" button_type="link" href=borrar_url %}
+          </div>
+          <div class="col-4">
+            {% url 'buscar' as buscar_url %}
+            {% bootstrap_button "Buscar" button_class="btn-success" button_type="link" href=buscar_url %}
+          </div>
+        </div><br>
+      </div>
+    </header><br>
+    <div class="section">
+    {% block  cuerpo %}
+    {% endblock %}
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+    </div>
+  </body>
 
-{%block cuerpo%}
-{%endblock%}
+
 <!-- <esto es el pie/ footer > -->
 <ul class="nav bg-dark fixed-bottom justify-content-center">
   <li class="nav-item">
     <a class="nav-link active" href="/DjangoUniApp">coder house - python 36585 - {% now 'd-m-Y' %}</a>
   </li>
 </ul>
+
+
+
 
 
   

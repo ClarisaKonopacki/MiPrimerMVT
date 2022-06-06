@@ -1,5 +1,5 @@
 from django.urls import path 
-from DjangoUniApp.views import index, agregar,borrar, buscar 
+from DjangoUniApp.views import index, agregar,borrar, buscar, form_carga
 
 urlpatterns =[
     path('', index, name='index'),

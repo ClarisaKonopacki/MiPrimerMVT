@@ -1,4 +1,4 @@
-{% extends "DjangoUniApp/familia_lista.html" %}
+{% extends "familia_lista.html" %}
 
 {% load bootstrap5 %}
 
@@ -28,7 +28,7 @@
                 <th scope="col">Acciones</th>
             </thead>
         
-            {% for persona in Personas %}
+            {% for persona in personas %}
             <tbody>
                 <tr>
                     <th scope="row">{{persona.id}} </th>
