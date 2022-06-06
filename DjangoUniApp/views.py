@@ -81,4 +81,4 @@ def buscar(request):
            palabra_a_buscar = form_busqueda.cleaned_data['palabra_a_buscar']
            personas = Persona.objects.filter(nombre__icontains=palabra_a_buscar)
 
-        return  render(request, 'MiembrosFamiliares.html', {"personas": personas})
+        return  render(request, 'MiembrosFamilia.html', {"personas": personas})
