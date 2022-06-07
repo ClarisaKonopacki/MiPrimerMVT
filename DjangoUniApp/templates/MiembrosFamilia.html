@@ -38,7 +38,7 @@
                     <td> {{persona.edad}} </td>
                     <td> {{persona.fecha_nacimiento}} </td>
                     
-                    {% url 'borrar' identificador=p.id as borrar_url %}
+                    {% url 'borrar' identificador=persona.id as borrar_url %}
                     <td>{% bootstrap_button "Borrar" size="sm" button_class="btn-danger" button_type="link" href=borrar_url %}</td>
                 </tr>  
             </tbody>
